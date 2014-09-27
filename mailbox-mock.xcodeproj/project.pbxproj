@@ -11,8 +11,8 @@
 		BA72D7C319D651D500CE2F4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA72D7C219D651D500CE2F4D /* ViewController.swift */; };
 		BA72D7C619D651D500CE2F4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA72D7C419D651D500CE2F4D /* Main.storyboard */; };
 		BA72D7C819D651D500CE2F4D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA72D7C719D651D500CE2F4D /* Images.xcassets */; };
-		BA72D7CB19D651D500CE2F4D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA72D7C919D651D500CE2F4D /* LaunchScreen.xib */; };
 		BA72D7D719D651D500CE2F4D /* mailbox_mockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA72D7D619D651D500CE2F4D /* mailbox_mockTests.swift */; };
+		BA72D7E119D6665400CE2F4D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA72D7E019D6665400CE2F4D /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,10 +32,10 @@
 		BA72D7C219D651D500CE2F4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA72D7C519D651D500CE2F4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA72D7C719D651D500CE2F4D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BA72D7CA19D651D500CE2F4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BA72D7D019D651D500CE2F4D /* mailbox-mockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mailbox-mockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA72D7D519D651D500CE2F4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA72D7D619D651D500CE2F4D /* mailbox_mockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailbox_mockTests.swift; sourceTree = "<group>"; };
+		BA72D7E019D6665400CE2F4D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 				BA72D7C219D651D500CE2F4D /* ViewController.swift */,
 				BA72D7C419D651D500CE2F4D /* Main.storyboard */,
 				BA72D7C719D651D500CE2F4D /* Images.xcassets */,
-				BA72D7C919D651D500CE2F4D /* LaunchScreen.xib */,
+				BA72D7E019D6665400CE2F4D /* LaunchScreen.xib */,
 				BA72D7BE19D651D500CE2F4D /* Supporting Files */,
 			);
 			path = "mailbox-mock";
@@ -193,7 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA72D7C619D651D500CE2F4D /* Main.storyboard in Resources */,
-				BA72D7CB19D651D500CE2F4D /* LaunchScreen.xib in Resources */,
+				BA72D7E119D6665400CE2F4D /* LaunchScreen.xib in Resources */,
 				BA72D7C819D651D500CE2F4D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,14 +242,6 @@
 				BA72D7C519D651D500CE2F4D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BA72D7C919D651D500CE2F4D /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BA72D7CA19D651D500CE2F4D /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
