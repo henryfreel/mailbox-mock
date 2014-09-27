@@ -49,6 +49,22 @@
                                         <rect key="frame" x="0.0" y="144" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_icon" id="9FX-lx-xdP">
+                                                <rect key="frame" x="276" y="30" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="list_icon" id="l9I-Z2-Avq">
+                                                <rect key="frame" x="80" y="30" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="CyI-Wf-XbZ">
+                                                <rect key="frame" x="20" y="30" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="delete_icon" id="Tf9-sd-iqW">
+                                                <rect key="frame" x="220" y="30" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="message" id="krQ-7o-W1Q">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -70,9 +86,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="archiveIconImage" destination="CyI-Wf-XbZ" id="bok-Jp-mwj"/>
+                        <outlet property="deleteIconImage" destination="Tf9-sd-iqW" id="QiE-4h-WzX"/>
                         <outlet property="feedImage" destination="I9V-bQ-2Zs" id="49T-NA-hHI"/>
                         <outlet property="helpImage" destination="hEq-qM-efM" id="hwe-QJ-ay8"/>
                         <outlet property="imagesView" destination="bmI-9L-WSU" id="fg8-we-SjI"/>
+                        <outlet property="laterIconImage" destination="9FX-lx-xdP" id="oBY-MW-K41"/>
+                        <outlet property="listIconImage" destination="l9I-Z2-Avq" id="kS9-Vn-Fye"/>
                         <outlet property="mailImage" destination="krQ-7o-W1Q" id="KSO-Fx-4GD"/>
                         <outlet property="mailView" destination="E9u-zy-SMe" id="AHd-qj-7OQ"/>
                         <outlet property="myScrollView" destination="xAg-Aa-joc" id="FtJ-aF-IVY"/>
@@ -91,10 +111,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="archive_icon" width="25" height="25"/>
         <image name="archive_nav_icon" width="25" height="20"/>
+        <image name="delete_icon" width="25" height="25"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
+        <image name="later_icon" width="25" height="25"/>
         <image name="later_nav_icon" width="25" height="20"/>
+        <image name="list_icon" width="25" height="25"/>
         <image name="mail_nav_icon" width="25" height="20"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
