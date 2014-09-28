@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var navBarImage: UIImageView!
     @IBOutlet weak var helpImage: UIImageView!
     @IBOutlet weak var searchImage: UIImageView!
-    @IBOutlet weak var imagesView: UIView!
     @IBOutlet weak var mailView: UIView!
     @IBOutlet weak var mailImage: UIImageView!
     @IBOutlet weak var feedImage: UIImageView!
@@ -21,6 +20,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var listIconImage: UIImageView!
     @IBOutlet weak var archiveIconImage: UIImageView!
     @IBOutlet weak var deleteIconImage: UIImageView!
+    @IBOutlet weak var rescheduleImage: UIImageView!
+    @IBOutlet weak var listImage: UIImageView!
+    @IBOutlet weak var menuImage: UIImageView!
+    @IBOutlet var contentView: UIView!
     
     var imageCenter: CGPoint!
 
@@ -38,13 +41,29 @@ class ViewController: UIViewController {
         var searchHeight = searchImage.image!.size.height
         var mailHeight = mailView.frame.size.height
         var feedHeight = feedImage.image!.size.height
+        
+        rescheduleImage.alpha = 0
+        rescheduleImage.hidden = false
+        
+        listImage.alpha = 0
+        listImage.hidden = false
 
         
-        myScrollView.contentSize = CGSizeMake(320, navHeight + helpHeight + searchHeight + mailHeight + feedHeight)
+        var edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
+        edgeGesture.edges = UIRectEdge.Left
+        contentView.addGestureRecognizer(edgeGesture)
+        
+        
+        myScrollView.contentSize = CGSizeMake(320, helpHeight + searchHeight + mailHeight + feedHeight)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    
+    func onEdgePan(gestureRecongnizer: UIScreenEdgePanGestureRecognizer) {
+        println("Hey thanks Kyle")
+    }
+    
     
     @IBAction func onPanMail(gestureRecognizer: UIPanGestureRecognizer) {
         
@@ -128,7 +147,13 @@ class ViewController: UIViewController {
                 /*----------------ADD TO LIST------------------*/
                 UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.finishOffLeft()
-                    }, completion: nil)
+                    }, { (finshed: Bool) -> Void in
+                        
+                        UIView.animateWithDuration(0.5, delay: 0, options: nil, animations: { () -> Void in
+                            self.listImage.alpha = 1
+                        }, completion: nil)
+                        
+                    })
                 
             } else if position < -60 {
                 
@@ -136,7 +161,14 @@ class ViewController: UIViewController {
                 
                 UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.finishOffLeft()
-                }, completion: nil)
+                    }, { (finshed: Bool) -> Void in
+                        
+                        UIView.animateWithDuration(0.5, delay: 0.3, options: nil, animations: { () -> Void in
+                            self.rescheduleImage.alpha = 1
+                            
+                        }, completion: nil)
+                        
+                })
                 
                 
             } else if position > -60 && position < 0 {
@@ -175,6 +207,38 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func didTapList(sender: UITapGestureRecognizer) {
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: nil, animations: { () -> Void in
+            
+            UIView.animateWithDuration(0.3, delay: 0, options: nil, animations: { () -> Void in
+                self.listImage.alpha = 0
+                self.mailView.backgroundColor = self.grey
+                }, completion: { (finished: Bool) -> Void in
+                    self.resizeScrollView()
+            })
+            
+        }, completion: nil)
+    }
+    
+    @IBAction func didTapReschedule(sender: UITapGestureRecognizer) {
+        
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: nil, animations: { () -> Void in
+            
+            
+            UIView.animateWithDuration(0.3, delay: 0, options: nil, animations: { () -> Void in
+                self.rescheduleImage.alpha = 0
+                self.mailView.backgroundColor = self.grey
+                }, completion: { (finished: Bool) -> Void in
+                self.resizeScrollView()
+            })
+            
+        }, completion: nil)
+        
+    }
+    
+    
     
     func finishOffLeft() {
         var position = mailImage.frame.origin.x
@@ -185,7 +249,7 @@ class ViewController: UIViewController {
             self.laterIconImage.frame.origin.x -= 320
             }) { (finshed: Bool) -> Void in
                 
-                self.resizeScrollView()
+                //self.resizeScrollView()
                 
         }
         
@@ -220,9 +284,11 @@ class ViewController: UIViewController {
         var mailHeight = mailView.frame.size.height
         var feedHeight = feedImage.image!.size.height
         
-        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.2, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(1, delay: 0.01, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.2, options: nil, animations: { () -> Void in
             self.feedImage.frame.origin.y -= 86
-            self.myScrollView.contentSize = CGSizeMake(320, navHeight + helpHeight + searchHeight + feedHeight)
+            self.myScrollView.contentSize = CGSizeMake(320, helpHeight + searchHeight + feedHeight)
+            self.mailView.backgroundColor = self.grey
+
             println("finshed")
             }, completion: nil)
     }
