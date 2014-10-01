@@ -23,9 +23,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var rescheduleImage: UIImageView!
     @IBOutlet weak var listImage: UIImageView!
     @IBOutlet weak var menuImage: UIImageView!
-    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet var didPanContent: UIPanGestureRecognizer!
     
     var imageCenter: CGPoint!
+    var viewCenter: CGPoint!
 
     var grey = UIColor(red:0.89, green:0.89, blue: 0.89, alpha: 1.0)
     var yellow = UIColor(red:0.97, green:0.82, blue: 0.27, alpha: 1.0)
@@ -35,6 +37,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        didPanContent.enabled = false
         
         var navHeight = navBarImage.image!.size.height
         var helpHeight = helpImage.image!.size.height
@@ -60,8 +64,131 @@ class ViewController: UIViewController {
     }
 
     
-    func onEdgePan(gestureRecongnizer: UIScreenEdgePanGestureRecognizer) {
-        println("Hey thanks Kyle")
+    /*----------------EDGE PAN GESTURE------------------*/
+    
+    func onEdgePan(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        //println("Hey thanks Kyle")
+        //contentView.frame.origin.x = 280
+        var position = contentView.frame.origin.x
+        
+        var location = gestureRecognizer.locationInView(view)
+        var translation = gestureRecognizer.translationInView(view)
+        var velocity = gestureRecognizer.velocityInView(view)
+        
+        var viewPosition = contentView.frame.origin.x
+        println("\(viewPosition)")
+        
+        
+        if gestureRecognizer.state == UIGestureRecognizerState.Began {
+            
+            
+                self.didPanContent.enabled = true
+                
+            
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Changed  {
+            
+            
+            if position >= 0 && position <= 260 {
+                
+                contentView.frame.origin.x = location.x
+                
+            }
+            
+            
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
+            
+            self.didPanContent.enabled = false
+            
+            if velocity.x > 0 {
+                
+                UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
+                    
+                    self.contentView.frame.origin.x = 260
+                    self.didPanContent.enabled = true
+
+                }, completion: nil)
+                
+                
+            } else {
+                
+                UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
+                    
+                    self.contentView.frame.origin.x = 0
+                    self.didPanContent.enabled = false
+                    println("This is not working \(viewPosition)")
+                    }, completion: nil)
+                
+                
+            }
+            
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
+    @IBAction func didPanCloseMenu(gestureRecognizer: UIPanGestureRecognizer) {
+        
+        var position = contentView.frame.origin.x
+        
+        var location = gestureRecognizer.locationInView(view)
+        var translation = gestureRecognizer.translationInView(view)
+        var velocity = gestureRecognizer.velocityInView(view)
+        
+        if gestureRecognizer.state == UIGestureRecognizerState.Began {
+            
+            println("Pan Began")
+            
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
+            
+            if position > 0 {
+                
+                self.contentView.frame.origin.x = location.x
+                println("Pan Changing")
+                
+            }
+            
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
+            
+            
+            println("Pan Ended")
+
+            
+            if velocity.x > 0 {
+                
+                UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
+                    
+                    self.contentView.frame.origin.x = 260
+                    
+                    }, completion: nil)
+                
+                
+            } else {
+                
+                UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
+                    
+                    self.contentView.frame.origin.x = 0
+                    self.didPanContent.enabled = false
+                    println("nooooo")
+
+                    
+                    }, completion: nil)
+                
+                
+            }
+            
+            
+            
+            
+        }
+        
+        
+        
+        
     }
     
     
