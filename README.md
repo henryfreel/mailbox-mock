@@ -42,4 +42,4 @@ Requirements
 
 
 
-![alt tag](carouselgif.gif)
+![alt tag](mailboxgif.gif)
