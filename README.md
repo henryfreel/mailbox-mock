@@ -5,12 +5,10 @@ mailbox-mock
 
 Time Spent
 -
-wayyyyyyy more than 10. idk exactly how much but probably like 15-20 but i went to town on it. There were not enough hours in the day this week. A lot of my push segues got messed up when i started adding a lot screens and using modals to go into the middle of a push flow so i had to change some of them to modals.
+Less than 10, busy week at work. Probabkly like 8.
 
-
-User Stories
+Requirements
 -
-
 
   * [x] On dragging the message left...
 
