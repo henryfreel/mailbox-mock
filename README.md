@@ -5,7 +5,7 @@ mailbox-mock
 
 Time Spent
 -
-Less than 10, busy week at work. Probabkly like 8.
+Less than 10, crazy week at work. Probabkly like 8.
 
 Requirements
 -
